@@ -7,9 +7,15 @@ export const environment = {
   production: false,
   firebase: {
     apiKey: "apiKey",
+    authDomain: "authDomain",
+    projectId: "projectId",
+    storageBucket: "storageBucket",
+    messagingSenderId: "messagingSenderId",
+    appId: "appId"
   },
   tmdb: {
     apiKey: 'apiKey',
+    accessToken: 'accessToken'
   },
   API
 };
