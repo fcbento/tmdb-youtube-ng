@@ -5,12 +5,23 @@ on:
     branches:
     - master
     - release/*
-
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'test'     
+        required: true
+        default: 'warning'
+      tags:
+        description: 'test scenarios'  
 jobs:
-  firebase-deploy:
-
+  printInputs:
     runs-on: ubuntu-latest
-
+    steps:
+    - run: |
+        echo "Teste level: ${{ github.event.inputs.logLevel }}"
+        echo "Test scenarios: ${{ github.event.inputs.tags }}" 
+  firebase-deploy:
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
     - uses: actions/setup-node@master
