@@ -1,0 +1,72 @@
+input::placeholder{
+    color: #d0d0d0;
+}
+
+input[type="text"], 
+input[type="password"]  {
+    text-align: center;
+    font-family: inherit;
+    border: 2px solid #fbff1c;
+    padding: 18px 18px;
+    width: 90%;
+    outline: none;
+    color: #ffffff;
+    transition: 0.25s;
+    font-size: 20px;
+    margin-bottom: 30px;
+  
+    &::placeholder {
+      font-size: 15px;
+    }
+  
+}
+
+input[type="submit"] {
+  margin: 10px auto;
+  text-align: center;
+  border: 2px solid;
+  background-color: #fbff1c;
+  border-color: #fbff1c;
+  padding: 13px 13px;
+  outline: none;
+  color: rgb(36, 36, 36);
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: 0.25s;
+  font-weight: bold;
+  cursor: pointer;
+  width: 53%;
+  
+  &:hover {
+    background-color: white;
+    border-color: white;
+  }
+
+  &:disabled{
+    background-color: #dddddd;
+    border-color: #dddddd;
+    color: grey;
+    cursor: default;
+  }
+}
+
+.icon__email {
+  background: url(https://img.icons8.com/ios/20/000000/guest-male.png) no-repeat scroll 18px 24px;
+}
+
+.icon__password {
+  background: url(https://img.icons8.com/ios/20/000000/lock-2.png) no-repeat scroll 18px 24px;
+}
+
+h4{
+  padding: 60px;
+  color: #ebebeb;
+  z-index: 1;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.input-error{
+  border-color: #ec6e6e !important;
+}

@@ -1,0 +1,6 @@
+<div class="center-xs overlay" *ngIf="isLoading | async">
+    <div class="spinner">
+        <fa-icon [icon]="['fas', 'spinner']" [spin]="true" size="10x" class="spinner-icon"></fa-icon>
+        <p class="spinner-title">{{loadingMessage}}...</p>
+    </div>
+</div>

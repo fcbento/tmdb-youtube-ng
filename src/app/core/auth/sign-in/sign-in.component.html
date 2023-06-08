@@ -1,0 +1,66 @@
+<section class="login-card">
+  <form class="form" (ngSubmit)="onSign()" [formGroup]="form">
+
+    <input 
+      type="text" 
+      id="email" 
+      name="email" 
+      placeholder="Email" 
+      formControlName="email" 
+      class="icon__email" 
+      [ngClass]="form.get('email').hasError('pattern') && form.get('email').touched || form.get('email').hasError('required') && form.get('email').touched ? 'input-error' : ''">
+  
+    <input 
+      type="password"
+      id="password" 
+      name="password" 
+      placeholder="Password" 
+      formControlName="password"
+      class="icon__password" 
+      minlength="6" 
+      [ngClass]="form.get('password').hasError('minlength') && form.get('password').touched || form.get('password').hasError('required') && form.get('password').touched  ? 'input-error' : ''">
+  
+    <input 
+      type="password" 
+      id="repassword" 
+      name="repassword" 
+      placeholder="Retype" 
+      formControlName="repassword"
+      class="icon__password" 
+      minlength="6" 
+      *ngIf="!signType"
+      [@inOutAnimation]
+      [ngClass]="form.get('repassword').hasError('minlength') && form.get('repassword').touched || form.get('repassword').hasError('required') && form.get('repassword').touched  ? 'input-error' : ''">
+  
+    <input 
+      type="submit"
+      value="{{signActionBtn}}" 
+      *ngIf="signType"
+      [disabled]="form.get('email').hasError('required') ||
+                    form.get('email').hasError('pattern') ||
+                    form.get('password').hasError('minlength') || 
+                    form.get('password').hasError('required')">
+  
+    <input 
+      type="submit" 
+      value="{{signActionBtn}}" 
+      *ngIf="!signType"
+      [disabled]="form.get('email').hasError('required') ||
+                    form.get('email').hasError('pattern') ||
+                    form.get('password').hasError('minlength') || 
+                    form.get('password').hasError('required') ||
+                    form.get('repassword').hasError('minlength') || 
+                    form.get('repassword').hasError('required') || 
+                    form.get('repassword').value !== form.get('password').value">
+    <br>
+    <small *ngIf="form.get('repassword').value !== form.get('password').value && !signType"
+      class="match-password">Passwords don't match</small>
+  </form>
+  
+  <p class="sign-up-link"> {{signInfo}}
+    <span class="sign-up-link__span" (click)="onSignType()">
+      {{signAction}}
+    </span>
+  </p>
+  <app-social-media></app-social-media>
+</section>

@@ -1,0 +1,16 @@
+<div class="card">
+    <div class="center-xs">
+        <img class="card-image" [src]="image">
+        <p class="card-title">{{data.original_title.substring(0,10)}}</p>
+        <p class="card-overview" *ngIf="!readMore">{{data.overview.substring(0,70)}}... 
+            <span class="card-read-more"(click)="readMore = !this.readMore">More</span>
+        </p>
+        <p class="card-overview" *ngIf="readMore">{{data.overview}} 
+            <span class="card-read-more"(click)="readMore = !this.readMore">Less</span>
+        </p>
+    </div>
+    <div class="start-xs">
+        <p>Release date: {{data.release_date | date}} </p>
+        <p>Score: {{data.vote_average}}</p>
+    </div>
+</div>
