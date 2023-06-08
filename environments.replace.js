@@ -23,6 +23,11 @@ fs.access(dir, fs.constants.F_OK, (err) => {
             const str = fs.readFileSync(dir + "/" + file).toString();
             console.log(str)
         }
+        if(fs.existsSync(dir + "/" + filePrd)) {
+            console.log('File is created PRD', path.resolve(dir + "/" + filePrd));
+            const str = fs.readFileSync(dir + "/" + filePrd).toString();
+            console.log(str)
+        }
     } catch (error) {
         console.error(error);
         process.exit(1)
