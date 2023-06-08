@@ -1,3 +1,6 @@
+$small: 300px;
+$medium: 900px;
+
 .overlay {
     position: fixed;
     display: block;
@@ -19,6 +22,9 @@
         font-size: 40px;
         font-family: 'Sigmar', cursive;
         color: #fbff1c;
+        @media screen and (min-width: $small) and (max-width: $medium) {
+            font-size: 30px;
+        }
     }
 
     .spinner_qM83 {

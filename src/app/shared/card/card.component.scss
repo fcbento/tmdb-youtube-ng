@@ -1,11 +1,18 @@
+$small: 300px;
+$medium: 900px;
+
 .card {
     background-color: white;
     width: 90%;
     border: 1px solid;
     border-radius: 10px;
     padding: 10px;
-    margin: 10px 0;
+    margin: 15px 15px;
     font-family: 'Sigmar', cursive;
+    
+    @media screen and (min-width: $small) and (max-width: $medium) {
+        margin: 15px 7px;
+    }
     
     &-image {
         border-radius: 10px;
