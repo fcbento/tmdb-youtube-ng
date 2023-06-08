@@ -29,7 +29,7 @@ jobs:
         node-version: '16.x'
     - run: node environments.replace.js
       env:
-        FIREBASE_DETAILS: '${{ secrets.FIREBASE_DETAILS }}'
+        FIREBASE_DETAILS: ${{ secrets.FIREBASE_DETAILS }}
     - run: npm install
     - run: npm run build:prod
     - uses: w9jds/firebase-action@master
