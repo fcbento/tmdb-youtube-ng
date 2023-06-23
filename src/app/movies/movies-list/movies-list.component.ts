@@ -12,7 +12,7 @@ export class MoviesListComponent implements OnInit, OnDestroy {
   
   movies: ResultData[];
   subscription: Subscription;
-
+  p: number = 1;
   constructor(private service: MovieService) { }
 
   ngOnInit(): void {

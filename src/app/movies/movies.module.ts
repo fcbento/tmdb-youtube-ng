@@ -4,6 +4,7 @@ import { MoviesComponent } from './movies/movies.component';
 import { MoviesListComponent } from './movies-list/movies-list.component';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from '../shared/shared.module';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 const routes: Routes = [
   { path: '', component: MoviesComponent }
@@ -13,7 +14,8 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    SharedModule
+    SharedModule,
+    NgxPaginationModule
   ],
   exports: [RouterModule],
   declarations: [
