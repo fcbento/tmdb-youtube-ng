@@ -1,5 +1,15 @@
 {
   "projects": {
     "default": "tmdb-c271d"
-  }
+  },
+  "targets": {
+    "tmdb-c271d": {
+      "hosting": {
+        "c271d": [
+          "tmdb-c271d"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }
