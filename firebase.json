@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "target": "tmdb-youtube-ng",
+    "target": "tmdb-c271d",
     "public": "dist/tmdb-youtube-ng",
     "ignore": [
       "firebase.json",
