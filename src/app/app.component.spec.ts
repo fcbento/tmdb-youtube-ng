@@ -30,6 +30,6 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     fixture.detectChanges();
-    expect(app.title).toEqual('tmdb-youtube-ng asd');
+    expect(app.title).toEqual('tmdb-youtube-ng');
   });
 });
