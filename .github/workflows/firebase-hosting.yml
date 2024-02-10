@@ -31,6 +31,7 @@ jobs:
       env:
         FIREBASE_DETAILS: ${{ secrets.FIREBASE_DETAILS }}
     - run: npm install --force
+    - run: npm run test:coverage
     - run: npm run build:prod
     - uses: w9jds/firebase-action@v12.9.0
       with:
