@@ -38,7 +38,7 @@ describe('LoaderComponent', () => {
   });
 
   it('should update loadingMessage when message changes', () => {
-    const message = '';
+    const message = 'loading';
     const messageSubject = new Subject<string>();
     jest.spyOn(loaderService, 'open');
     component.ngOnInit();
