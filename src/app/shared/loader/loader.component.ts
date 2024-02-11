@@ -11,7 +11,7 @@ export class LoaderComponent implements OnInit, OnDestroy {
 
   isLoading: Observable<boolean>;
   message: Observable<string>;  
-  loadingMessage = '';
+  loadingMessage = 'loading';
   subscription: Subscription;
 
   constructor(private loaderService: LoaderService) {
@@ -26,11 +26,11 @@ export class LoaderComponent implements OnInit, OnDestroy {
   handleLoadingMessage(): void {
     this.subscription = this.message.pipe(
       distinctUntilChanged(),
-      tap(message => this.loadingMessage = message)
+      //tap(message => this.loadingMessage = message)
     ).subscribe()
   }
 
   ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+    if (this.subscription)this.subscription.unsubscribe();
   }
 }

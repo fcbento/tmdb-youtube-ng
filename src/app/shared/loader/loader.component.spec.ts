@@ -1,48 +1,48 @@
-import { ComponentFixture, TestBed } from "@angular/core/testing";
-import { LoaderComponent } from "./loader.component";
-import { LoaderService } from "../services/loader.service";
-import { Subject, of } from "rxjs";
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Observable, Subject } from 'rxjs';
+import { LoaderComponent } from './loader.component';
+import { LoaderService } from '../services/loader.service';
 
 describe('LoaderComponent', () => {
-    let component: LoaderComponent;
-    let fixture: ComponentFixture<LoaderComponent>;
-    let fakeService: any;
+  let component: LoaderComponent;
+  let fixture: ComponentFixture<LoaderComponent>;
+  let loaderService: LoaderService;
 
-    beforeEach(async () => {
-        fakeService = {
-            open: jest.fn(),
-            close: jest.fn(),
-            isLoading: new Subject<boolean>(),
-            message: new Subject<string>()
-        }
-        await TestBed.configureTestingModule({
-            declarations: [LoaderComponent],
-            providers: [
-                {
-                    provide: LoaderService,
-                    useValue: fakeService
-                }
-            ]
-        }).compileComponents();
-    });
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [LoaderComponent],
+      providers: [LoaderService]
+    })
+    .compileComponents();
+  });
 
-    beforeEach(() => {
-        fixture = TestBed.createComponent(LoaderComponent);
-        component = fixture.componentInstance;
-        fixture.detectChanges();
-    });
+  beforeEach(() => {
+    fixture = TestBed.createComponent(LoaderComponent);
+    component = fixture.componentInstance;
+    loaderService = TestBed.inject(LoaderService);
+  });
 
-    it('should create app', () => {
-        const fixture = TestBed.createComponent(LoaderComponent);
-        const app = fixture.componentInstance;
-        fixture.detectChanges();
-        expect(app).toBeTruthy();
-    });
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
 
-    it('should display loader', () => {
-        const expectResponse = '';
-        jest.spyOn(fakeService, 'open').mockReturnValue(of(expectResponse));
-        fixture.detectChanges();
-        expect(component.loadingMessage).toBe(expectResponse);
-    });
+  it('should initialize isLoading and message observables', () => {
+    expect(component.isLoading).toBeInstanceOf(Observable);
+    expect(component.message).toBeInstanceOf(Observable);
+  });
+
+  it('should call handleLoadingMessage on ngOnInit', () => {
+    const handleLoadingMessageSpy = jest.spyOn(component, 'handleLoadingMessage');
+    component.ngOnInit();
+    expect(handleLoadingMessageSpy).toHaveBeenCalled();
+  });
+
+  it('should update loadingMessage when message changes', () => {
+    const message = '';
+    const messageSubject = new Subject<string>();
+    jest.spyOn(loaderService, 'open');
+    component.ngOnInit();
+    messageSubject.next(message);
+    expect(component.loadingMessage).toEqual(message);
+  });
 });

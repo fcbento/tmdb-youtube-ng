@@ -59,7 +59,7 @@ export class SignInComponent implements OnInit {
     this.signType = !this.signType;
     this.form.reset();
     this.onCheckPage();
-    console.log('testing firebase deploy')
+    console.log('new deploy')
   }
 
   public onSign(): void {
