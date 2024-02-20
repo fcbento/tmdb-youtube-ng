@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
@@ -13,13 +13,11 @@ import { LoaderService } from 'src/app/shared/services/loader.service';
 })
 export class AuthService {
 
-  constructor(
-    private fireStore: AngularFirestore,
-    private fireAuth: AngularFireAuth,
-    private router: Router,
-    private notifier: NotifierService, 
-    private loader: LoaderService) { }
-
+  private fireStore = inject(AngularFirestore);
+  private fireAuth = inject(AngularFireAuth);
+  private router = inject(Router);
+  private notifier = inject(NotifierService);
+  private loader = inject(LoaderService);
   public token = '';
 
   public async signupUser(email: string, password: string): Promise<boolean> {
@@ -54,7 +52,7 @@ export class AuthService {
   }
 
   public async socialMediaAuth(media: string): Promise<void> {
-  
+
     const provider = {
       [SocialMedia.GOOGLE]: new auth.GoogleAuthProvider(),
       [SocialMedia.FACEBOOK]: new auth.FacebookAuthProvider(),
@@ -96,8 +94,11 @@ export class AuthService {
   }
 
   public logout(): void {
-    //this.token = null;
+    this.token = null;
+    this.loader.open();
+    this.fireAuth.signOut().then(() => {
+      this.router.navigate(['/'])
+      setTimeout(() => { this.loader.close(); }, 1000);
+    })
   }
-
-
 }

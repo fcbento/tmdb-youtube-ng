@@ -4,8 +4,9 @@ $medium: 900px;
 .card {
     background-color: white;
     width: 90%;
-    border: 1px solid;
-    border-radius: 10px;
+    border: 1px solid #f3f3f3;
+    box-shadow: #ececec 0px 0px 8px 8px;
+    border-radius: 7px;
     padding: 10px;
     margin: 15px 15px;
     font-family: 'Sigmar', cursive;

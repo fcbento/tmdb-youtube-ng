@@ -5,15 +5,15 @@ input::placeholder{
 input[type="text"], 
 input[type="password"]  {
     text-align: center;
-    font-family: inherit;
-    border: 1px solid #eaec5c;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    border: 1px solid #c4c4c4;
     border-radius: 8px;
     padding: 18px 18px;
     width: 90%;
     outline: none;
-    color: #ffffff;
+    color: #444444;
     transition: 0.25s;
-    font-size: 20px;
+    font-size: 14px;
     margin-bottom: 30px;
   
     &::placeholder {
@@ -26,8 +26,8 @@ input[type="submit"] {
   margin: 10px auto;
   text-align: center;
   border: 2px solid;
-  background-color: #eaec5c;
-  border-color: #eaec5c;
+  background-color: #41cfda;
+  border-color: #41cfda;
   padding: 13px 13px;
   outline: none;
   color: rgb(36, 36, 36);
@@ -40,8 +40,9 @@ input[type="submit"] {
   width: 53%;
   
   &:hover {
-    background-color: white;
-    border-color: white;
+    background-color: #333333;
+    border-color: #333333;
+    color: white;
   }
 
   &:disabled{

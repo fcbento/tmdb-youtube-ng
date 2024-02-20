@@ -5,15 +5,15 @@
 .box {
     padding: 10px;
     text-align: center;
-    color: white;
+    color: rgb(0, 0, 0);
     font-size: 1rem;
     cursor: pointer;
 
     &:hover {
-        color: #ffea2c;
+        color: #41cfda;
     }
 
     .active {
-        color: #ffea2c;
+        color: #41cfda;
     }
 }
