@@ -1,6 +1,1 @@
-@import "../node_modules/angular-notifier/styles";
-@import url('https://fonts.googleapis.com/css2?family=Sigmar&display=swap');
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;}
-body .container-fluid{padding-right: 1rem; padding-left: 1rem;}
+@use 'styles/_style.scss'

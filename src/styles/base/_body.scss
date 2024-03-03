@@ -1,0 +1,18 @@
+@import "../../../node_modules/angular-notifier/styles.scss";
+@import url('https://fonts.googleapis.com/css2?family=Sigmar&display=swap');
+@import './variables';
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: $base-font;
+}
+
+body .container-fluid {
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
