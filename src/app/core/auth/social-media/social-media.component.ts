@@ -8,7 +8,8 @@ import { SocialMedia } from '../../enums/auth.enum';
   styleUrls: ['./social-media.component.scss']
 })
 export class SocialMediaComponent implements OnInit {
-
+  public social = SocialMedia;
+  
   constructor(public service: AuthService) { }
 
   ngOnInit(): void {
