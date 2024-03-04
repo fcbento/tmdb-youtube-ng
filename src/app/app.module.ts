@@ -17,6 +17,9 @@ import { MenuModule } from './menu/menu.module';
 import { CoreInterceptor } from './core/interceptors/core.interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoaderInterceptor } from './core/interceptors/loeader.interceptor';
+import { NgxsModule } from '@ngxs/store';
+import { SessionState } from './core/auth/store/session.state';
+import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
 
 @NgModule({
   declarations: [
@@ -33,7 +36,11 @@ import { LoaderInterceptor } from './core/interceptors/loeader.interceptor';
     AngularFireDatabaseModule,
     NotifierModule,
     SharedModule,
-    MenuModule
+    MenuModule,
+    NgxsModule.forRoot([
+      SessionState
+    ]),
+    NgxsStoragePluginModule.forRoot()
   ],
   providers: [
     { 

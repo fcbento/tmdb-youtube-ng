@@ -7,6 +7,8 @@ import { SocialMedia } from '../enums/auth.enum';
 import { User } from 'firebase/auth';
 import { NotifierService } from 'angular-notifier';
 import { LoaderService } from 'src/app/shared/services/loader.service';
+import { Session } from '../auth/store/session.actions';
+import { Store } from '@ngxs/store';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +20,8 @@ export class AuthService {
   private router = inject(Router);
   private notifier = inject(NotifierService);
   private loader = inject(LoaderService);
+  private store = inject(Store);
+
   public token = '';
 
   public async signupUser(email: string, password: string): Promise<boolean> {
@@ -81,6 +85,7 @@ export class AuthService {
     const userRef = this.fireStore.doc(`users/${user.uid}`);
     const { uid, email, displayName, photoURL, emailVerified } = user;
     const userData = { uid, email, displayName, photoURL, emailVerified };
+    this.store.dispatch(new Session(userData));
     this.loader.close();
     return userRef.set(userData, { merge: true });
   }

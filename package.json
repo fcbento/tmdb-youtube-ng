@@ -23,6 +23,8 @@
     "@angular/platform-browser-dynamic": "^17.1.2",
     "@angular/router": "^17.1.2",
     "@ng-bootstrap/ng-bootstrap": "^16.0.0",
+    "@ngxs/storage-plugin": "^3.8.2",
+    "@ngxs/store": "^3.8.2",
     "angular-notifier": "^14.0.0",
     "bootstrap": "^5.3.3",
     "firebase": "^9.21.0",
