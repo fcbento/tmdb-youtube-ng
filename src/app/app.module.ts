@@ -20,6 +20,7 @@ import { LoaderInterceptor } from './core/interceptors/loeader.interceptor';
 import { NgxsModule } from '@ngxs/store';
 import { SessionState } from './core/auth/store/session.state';
 import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
+import { MovieState } from './movies/store/movies.state';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
     SharedModule,
     MenuModule,
     NgxsModule.forRoot([
-      SessionState
+      SessionState,
+      MovieState
     ]),
     NgxsStoragePluginModule.forRoot()
   ],

@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-lg-3 col-xs-12" *ngFor="let movie of movies | paginate: { itemsPerPage: 4, currentPage: p}">
+    <div class="col-lg-3 col-xs-12" *ngFor="let movie of (movies$ | async) | paginate: { itemsPerPage: 4, currentPage: p}">
         <app-card [data]="movie"></app-card>
     </div>
 </div>
