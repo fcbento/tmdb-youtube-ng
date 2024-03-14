@@ -5,6 +5,7 @@ import { MoviesListComponent } from './movies-list/movies-list.component';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from '../shared/shared.module';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { MoviesDetailsComponent } from './movies-details/movies-details.component';
 
 const routes: Routes = [
   { path: '', component: MoviesComponent }
@@ -20,7 +21,8 @@ const routes: Routes = [
   exports: [RouterModule],
   declarations: [
     MoviesComponent,
-    MoviesListComponent
+    MoviesListComponent,
+    MoviesDetailsComponent
   ]
 })
 

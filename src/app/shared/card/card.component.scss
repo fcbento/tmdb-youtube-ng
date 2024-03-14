@@ -10,7 +10,8 @@ $medium: 900px;
     padding: 10px;
     margin: 15px 15px;
     font-family: 'Sigmar', cursive;
-    
+    height: 480px;
+
     @media screen and (min-width: $small) and (max-width: $medium) {
         margin: 15px 7px;
     }
@@ -18,13 +19,14 @@ $medium: 900px;
     &-image {
         border-radius: 10px;
         width: 100%;
+        height: 100%;
     }
 
     &-title {
-        font-size: 1.5rem;
+        font-size: 1rem;
         color: #252525;
         cursor: pointer;
-
+        margin-top: 10px;
         &:hover {
             color: black;
         }

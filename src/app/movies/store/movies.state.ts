@@ -17,9 +17,7 @@ export class MovieState {
     @Action(GetMovies)
     getMovies(ctx: StateContext<Movies[]>) {
         this.service.getPopular().subscribe({
-            next: (movies: MoviesResult) => {
-                ctx.setState(movies.results);
-            }
-        })
+            next: (movies: MoviesResult) => ctx.setState(movies.results)
+        });
     }
 }

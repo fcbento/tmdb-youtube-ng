@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ResultData } from 'src/app/core/models/result-data.model';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Movies } from 'src/app/movies/store/movies.model';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -9,7 +9,8 @@ import { environment } from 'src/environments/environment';
 })
 export class CardComponent implements OnInit {
   
-  @Input() data: ResultData;
+  @Input() data: Movies;
+  @Output() goDetails: EventEmitter<Movies> = new EventEmitter();
   image: string;
   readMore = false;
 
@@ -17,6 +18,10 @@ export class CardComponent implements OnInit {
 
   ngOnInit(): void {
     this.image = environment.API.photoURL + this.data.poster_path;
+  }
+
+  details(data: Movies) {
+    this.goDetails.emit(data);
   }
 
 }

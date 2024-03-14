@@ -1,4 +1,8 @@
-<div class="row end-xs">
+<div class="row menu">
+    <div class="col-1 box profile">
+        <img src="{{(session$ | async).photoURL}}" width="50px">
+        <p>{{(session$ | async).displayName}}</p>
+    </div>
     <div class="col-1 box">
         <p [routerLink]="'movies'" routerLinkActive="active">movies</p>
     </div>
