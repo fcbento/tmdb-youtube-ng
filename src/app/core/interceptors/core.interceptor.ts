@@ -16,13 +16,16 @@ export class CoreInterceptor implements HttpInterceptor {
         }));
     }
 
-    private body(body: any): ResponseData {
-        return {
-            page: body.page,
-            results: body.results,
-            totalPages: body.total_pages,
-            totalResults: body.total_results
+    private body(body: any): any {
+        if (body.results?.length) {
+            return {
+                page: body.page,
+                results: body.results,
+                totalPages: body.total_pages,
+                totalResults: body.total_results
+            }
         }
+        
     }
 
 }

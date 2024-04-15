@@ -1,13 +1,15 @@
 <div class="row" *ngIf="!isDetails">
     <div class="col-lg-2 col-xs-12" *ngFor="let movie of (movies$ | async) | paginate: { itemsPerPage: 20, currentPage: p}">
-        <app-card [data]="movie" (goDetails)="getDetails($event)"></app-card>
+        <app-card 
+            [data]="movie" 
+            (goDetails)="getDetails($event)">
+        </app-card>
     </div>
 </div>
 
 <div class="row" *ngIf="isDetails">
     <app-movies-details 
-        [detail]="detail" 
-        [image]="image"
+        [detailId]="detail?.id" 
         (previous)="previous()">
     </app-movies-details>
 </div>

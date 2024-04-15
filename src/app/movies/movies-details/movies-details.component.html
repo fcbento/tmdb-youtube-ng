@@ -1,5 +1,7 @@
 <div class="col-xs-12">
     <img class="card-image" [src]="image">
-    <p>{{detail.title}}</p>
+    <p>{{detail?.title}}</p>
+    <p>{{detail?.overview}}</p>
+    <span *ngFor="let genre of detail?.genres"> - {{genre.name}}</span><br>
     <button (click)="goPrevious()">Previous</button>
 </div>

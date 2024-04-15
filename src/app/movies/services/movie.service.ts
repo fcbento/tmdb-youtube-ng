@@ -14,4 +14,8 @@ export class MovieService {
   getPopular(): Observable<MoviesResult> {
     return this.http.get<MoviesResult>(`${environment.API.baseURL}/movie/popular?api_key=${environment.tmdb.apiKey}`);
   }
+
+  getDetails(id: any): Observable<any> {
+    return this.http.get<MoviesResult>(`${environment.API.baseURL}/movie/${id}?api_key=${environment.tmdb.apiKey}`);
+  }
 }
