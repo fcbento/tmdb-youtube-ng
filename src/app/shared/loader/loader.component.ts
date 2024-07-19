@@ -26,7 +26,7 @@ export class LoaderComponent implements OnInit, OnDestroy {
   handleLoadingMessage(): void {
     this.subscription = this.message.pipe(
       distinctUntilChanged(),
-      //tap(message => this.loadingMessage = message)
+      tap(message => this.loadingMessage = message)
     ).subscribe()
   }
 

@@ -38,7 +38,7 @@ export class AuthService {
   }
 
   public async signinUser(email: string, password: string): Promise<void> {
-    this.loader.open('loggin in');
+    this.loader.open('logging in');
     try {
       const result = await this.fireAuth.signInWithEmailAndPassword(email, password);
       this.setUserData(result.user);
@@ -68,7 +68,7 @@ export class AuthService {
   }
 
   private async getProvider(provider: any): Promise<void> {
-    this.loader.open('loggin in');
+    this.loader.open('logging in');
     try {
       const result = await this.fireAuth.signInWithPopup(provider);
       if(result) {
@@ -100,7 +100,7 @@ export class AuthService {
 
   public logout(): void {
     this.token = null;
-    this.loader.open();
+    this.loader.open('logging out');
     this.fireAuth.signOut().then(() => {
       this.router.navigate(['/'])
       setTimeout(() => { this.loader.close(); }, 1000);

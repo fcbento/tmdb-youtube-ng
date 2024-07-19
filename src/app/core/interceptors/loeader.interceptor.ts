@@ -10,7 +10,7 @@ export class LoaderInterceptor implements HttpInterceptor {
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         //this.loaderService.open('loading');
         return next.handle(req).pipe(
-            //finalize(() => this.loaderService.close())
+            finalize(() => this.loaderService.close())
         );
     }
 }
